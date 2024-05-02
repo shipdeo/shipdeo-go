@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/shipdeo/shipdeo-go/pkg/core"
+	"github.com/shipdeo/shipdeo-go/pkg/core/auth"
 )
 
-type HttpClient struct {
+type HttpShipdeoAuthClient struct {
 	BaseURL      string
 	ClientId     string
 	ClientSecret string
@@ -16,7 +16,7 @@ type HttpClient struct {
 }
 
 // Authenticate implements the APIClient interface in core.APIClient.
-func (c *HttpClient) Authenticate() (*core.TokenResponse, error) {
+func (c *HttpShipdeoAuthClient) ShipdeoAuthenticate() (*auth.TokenResponse, error) {
 	data := strings.NewReader("client_id=" + c.ClientId + "&client_secret=" + c.ClientSecret + "&grant_type=client_credentials")
 	req, err := http.NewRequest("POST", c.BaseURL+"/oauth2/connect/token", data)
 	if err != nil {
@@ -32,7 +32,7 @@ func (c *HttpClient) Authenticate() (*core.TokenResponse, error) {
 	}
 	defer resp.Body.Close()
 
-	var tokenResponse core.TokenResponse
+	var tokenResponse auth.TokenResponse
 	if err := json.NewDecoder(resp.Body).Decode(&tokenResponse); err != nil {
 		return nil, err
 	}

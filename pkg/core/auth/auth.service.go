@@ -1,4 +1,4 @@
-package core
+package auth
 
 // ShipdeoAuthService is the service responsible for handling authentication logic.
 type ShipdeoAuthService struct {
@@ -13,6 +13,6 @@ func NewShipdeoAuthService(client ShipdeoAuthClient) *ShipdeoAuthService {
 }
 
 // Authenticate uses the APIClient to authenticate and retrieve a token.
-func (s *ShipdeoAuthService) Authenticate() (*TokenResponse, error) {
-	return s.Client.Authenticate()
+func (s *ShipdeoAuthService) ShipdeoAuthenticate() (*TokenResponse, error) {
+	return s.Client.ShipdeoAuthenticate()
 }
