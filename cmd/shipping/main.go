@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/shipdeo/shipdeo-go/pkg/api"
-	core "github.com/shipdeo/shipdeo-go/pkg/core/shipping"
+	"github.com/shipdeo/shipdeo-go/pkg/core/shipping"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 		Token:      "937540dac86c15046204cde3b52d5a5113da6bf2",
 	}
 
-	service := core.NewShipdeoShippingService(appClient)
+	service := shipping.NewShipdeoShippingService(appClient)
 
 	jsonStr := `
     {
@@ -54,7 +54,7 @@ func main() {
         ]
     }`
 
-	var request core.ShippingRequest
+	var request shipping.ShippingRequest
 	err := json.Unmarshal([]byte(jsonStr), &request)
 	if err != nil {
 		fmt.Println("Error:", err)

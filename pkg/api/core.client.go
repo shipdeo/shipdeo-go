@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 
 	"github.com/shipdeo/shipdeo-go/pkg/core/shipping"
@@ -39,7 +38,6 @@ func (c *HttpShipdeoCoreClient) GetOngkir(payload shipping.ShippingRequest) (*sh
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		fmt.Println(resp.StatusCode)
 		return nil, errors.New("failed to fetch shipping pricing")
 	}
 
