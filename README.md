@@ -1,4 +1,4 @@
-# Shipdeo
+# Shipdeo-go
 Integrasion Shipping Indonesia with shipdeo, 
 
 ## Official Website
