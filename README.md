@@ -29,3 +29,10 @@ Courier list is a service that displays a list of available couriers along with 
 | --------- | -------------- |
 | gosend    | GoSend         |
 | grab      | Grab Express   |
+
+### List of function integrations SHIPDEO Api
+
+| Name      | Description  |
+| --------- | -------------- |
+| ShipdeoAuthenticate      | Fucntion for generate token to access API Shipdeo  |
+| GetOngkir    | Function for request list shipping ongkir         |
